@@ -61,7 +61,6 @@ html, body {
 
 body {
     font-family: sans-serif;
-    background: url("/img/pexels-ajaybhargavguduru-863988.jpg") no-repeat center;
 }
 
 a {
@@ -80,6 +79,11 @@ img {
     display: none;
     font-size: 2em;
     cursor: pointer;
+    position: absolute;
+    right: 20px; /* Posune burger doprava */
+    top: 15px;
+    color: white;
+    z-index: 1000; /* Aby bylo nad ostatními prvky */
 }
 
 /* Header Section */
@@ -119,7 +123,7 @@ img {
 
 /* Welcome Section */
 #welcome {
-    background: url("/img/sunset-5560658_1280.jpg") no-repeat center center/cover;
+    background: url("img/sunset.jpg") no-repeat center center/cover;
     height: 95vh;
     display: flex;
     align-items: center;
@@ -224,6 +228,15 @@ table {
     margin: 5%;
     width: 90%;
     margin-bottom: 30px;
+    margin-top: 100px;
+}
+
+tr:nth-child(even) td#rezervace{
+    background-color: whitesmoke; 
+}
+
+tr:nth-child(even){
+    background-color: whitesmoke; 
 }
 
 th, td {
@@ -241,6 +254,8 @@ th, td {
     max-width: 100px;
 }
 
+
+
 th {
     background-color: black;
     color: turquoise;
@@ -256,10 +271,6 @@ th {
     background-color: black;
 }
 
-#poznamka {
-    text-align: center;
-    font-size: 2rem;
-}
 
 /**********
 rezervace.php
@@ -336,10 +347,13 @@ footer {
     margin-top: auto;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) { 
     .burger-menu {
         display: block;
-        color: white;
+    }
+
+    #nav {
+        position: relative;
     }
 
     #nav-menu {
@@ -351,12 +365,21 @@ footer {
         background: black;
         width: 200px;
         text-align: center;
-        padding: 10px;
-        border-radius: 5px;
     }
 
     #nav-menu.active {
         display: flex;
+    }
+
+    #nav-menu li {
+        margin: 10px 0;
+    }
+
+    #nav-menu a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.2em;
+        display: block;
     }
 }
 @media (max-width: 500px) {

@@ -1,49 +1,62 @@
 <!DOCTYPE html>
 <html lang="cs">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrace</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
-
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="img/logo.svg">
+    <title>Rezervace</title>
 </head>
+
 <body>
     <header>
-        <nav class="navigation">
-            <div class="logo">
-                <img src="img/Logo (2) (2).png" alt="Logo">
-            </div>
+    <div id="nav">
+            <p><a href="index.html"><img src="img/logo.svg" alt=""></a></p>
             <div class="burger-menu" onclick="toggleMenu()">&#9776;</div>
-            <ul class="menu">
-                <li><a href="index.html">Domů</a></li>
-                <li><a href="benefits.html">Výhody sportování</a></li>
-                <li><a href="types.html">Druhy sportů</a></li>
-                <li><a href="plans.html">Tréninkové plány</a></li>
-                <li><a href="register.html">Registrace</a></li>
+            <ul id="nav-menu">
+                <li><a class="active" href="index.html">Úvod</a></li>
+                <li><a href="viceinf.html">O nás</a></li>
+                <li><a href="cenik.html">Ceník</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+                <li><a href="rezervace.php">Rezervace</a></li>
             </ul>
-        </nav>
+        </div>
     </header>
 
-    <form class="registration-form" action="/register" method="POST">
-        <h2>Registrace</h2>
-        <div class="form-group">
-            <label for="username">Uživatelské jméno</label>
-            <input type="text" id="username" name="username" required>
-        </div>
-        <div class="form-group">
-            <label for="email">E-mail</label>
-            <input type="email" id="email" name="email" required>
-        </div>
-        <div class="form-group">
-            <label for="password">Heslo</label>
-            <input type="password" id="password" name="password" required>
-        </div>
-        <button type="submit" class="submit-button">Registrovat</button>
-    </form>
+    <main>
+        <section id="reservation-form">
+            <h1>Rezervace</h1>
+            <div id="reservation-content" class="container">
+                <div id="form">
+                    <form action="rezervace.php" method="POST">
+                        <label for="jmeno">Vaše jméno: </label>
+                        <input type="text" name="jmeno" required><br>
+                        <label for="prijmeni">Vaše příjmení: </label>
+                        <input type="text" name="prijmeni" required><br>
+                        <label for="email">Váš email: </label>
+                        <input type="email" name="email" required><br>
+                        <label for="id_pokoje">Vyberte místo prostoru:</label><br>
+                        <div id="room">
+                            <select name="id_pokoje" required>
+                                <option value="" disabled selected>Prostor:</option>
+                                <option value='1'>Fitness</option><option value='2'>Kardio zóna</option><option value='3'>Bazén</option><option value='4'>Wellness</option><option value='5'>Sportovní hala</option><option value='6'>Skupinové lekce</option></select>
+                        </div>
+                        <label for="poznamka">Poznámka:</label>
+                        <textarea name="poznamka"></textarea>
+                        <input type="submit" class="btn">
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <footer>
-        Jedná se o fiktivní projekt pro závěrečnou maturitní práci.
+        <p>Jedná se o fiktivní projekt pro závěrečnou maturitní práci.</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
