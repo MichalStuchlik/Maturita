@@ -182,12 +182,12 @@ img {
 
 /***************** viceinfo *****************/
 
-#about {
+.about {
     overflow-x: hidden; /* Skryta­ scrollbaru */
     overflow-y: hidden
 }
 
-#about h1 {
+.about h1 {
     display: block;
     margin: 2.5em 0 1em 0;
     font-size: 2.2em;
@@ -196,7 +196,7 @@ img {
     font-weight: bold;
 }
 
-#about p {
+.about p {
     margin: 0 20%;
     font-size: 1.2em;
     text-align: justify;
@@ -270,11 +270,41 @@ th {
 .btn:hover {
     background-color: black;
 }
+/***************** Blog *****************/
 
+.page-4 h2{
+    color: turquoise;
+    margin: 0 20%;
+    font-size: 1.7em;
+    text-align: justify;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
 
-/**********
-rezervace.php
-*/
+.page-4 .text  {
+    margin: 0 20%;
+    font-size: 1.1em;
+    text-align: justify;
+    padding-bottom: 20px;
+}
+.page-4 #obsah {
+    margin: 0 21%;
+    font-size: 1.2em;
+    text-align: justify;
+    padding-top: 10px;
+}
+
+.page-4 .container {
+    display: flex;
+    justify-content: center ;
+    width: 300px ; /* Šířka obrázku */
+    height: 300px; /* Výška se přizpůsobí poměru stran obrázku */
+    margin-top: 20px;
+}
+
+    
+
+/***************** Rezervace *****************/
 
 /* Form */
 
@@ -290,6 +320,7 @@ rezervace.php
 #reservation-content #form {
     justify-content: space-between;
     border: 1px solid black;
+    border-radius: 8px;
     background-color: #e9e9e9;
 }
 
@@ -303,7 +334,6 @@ rezervace.php
     width: 60%;
     padding: 1em;
     margin: 0 auto;
-
 }
 
 #reservation-content form input {
