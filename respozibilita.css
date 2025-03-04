@@ -130,6 +130,27 @@
         padding: 20px;
     }
 
+    /* Blog */
+
+    .h2 {
+        font-size: 16px;
+    }
+
+    .text {
+        font-size: 12px;
+    }
+
+    .obsah {
+        font-size: 14px;
+    }
+
+    .page-4 #obsah {
+        margin: 0 24%;
+        font-size: 1.2em;
+        text-align: justify;
+        padding-top: 10px;
+    }
+
 /* Na mobilech zobrazit obrázky pod sebou */
 @media screen and (max-width: 768px) {
     .container {

@@ -11,7 +11,7 @@
     <title>Rezervace</title>
 </head>
 
-<body>
+<body id="page-5">
     <header>
     <div id="nav">
             <p><a href="index.html"><img src="img/logo.svg" alt=""></a></p>
@@ -31,23 +31,44 @@
             <h1>Rezervace</h1>
             <div id="reservation-content" class="container">
                 <div id="form">
-                    <form action="rezervace.php" method="POST">
-                        <label for="jmeno">Vaše jméno: </label>
-                        <input type="text" name="jmeno" required><br>
-                        <label for="prijmeni">Vaše příjmení: </label>
-                        <input type="text" name="prijmeni" required><br>
-                        <label for="email">Váš email: </label>
-                        <input type="email" name="email" required><br>
-                        <label for="id_pokoje">Vyberte místo prostoru:</label><br>
-                        <div id="room">
-                            <select name="id_pokoje" required>
-                                <option value="" disabled selected>Prostor:</option>
-                                <option value='1'>Fitness</option><option value='2'>Kardio zóna</option><option value='3'>Bazén</option><option value='4'>Wellness</option><option value='5'>Sportovní hala</option><option value='6'>Skupinové lekce</option></select>
-                        </div>
-                        <label for="poznamka">Poznámka:</label>
-                        <textarea name="poznamka"></textarea>
-                        <input type="submit" class="btn">
-                    </form>
+                <form method="POST" action="rezervace.php">
+                    <label for="name">Jméno:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="surname">Příjmení:</label>
+                    <input type="text" id="surname" name="surname" required>
+
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="phone">Telefon:</label>
+                    <input type="tel" id="phone" name="phone" required>
+
+                    <label for="facility">Prostor:</label>
+                    <select id="facility" name="facility" required>
+                        <!-- Dynamicky naplněno z databáze -->
+                        <?php
+                        // Připojíme se k databázi a získáme prostory
+                        $conn = new mysqli('localhost', 'michalstuchlik', 'Jezkopesko002', 'sportrental');
+                        $result = $conn->query("SELECT * FROM facilities");
+                                        while ($row = $result->fetch_assoc()) {
+                            echo "<option value='" . $row['prostor_ID'] . "'>" . $row['nazev'] . " - " . $row['misto'] . "</option>";
+                        }
+                        $conn->close();
+                        ?>
+                    </select>
+                    
+                    <label for="date">Datum rezervace:</label>
+                    <input type="date" id="date" name="date" required>
+
+                    <label for="start_time">Začátek:</label>
+                    <input type="time" id="start_time" name="start_time" required>
+
+                    <label for="end_time">Konec:</label>
+                    <input type="time" id="end_time" name="end_time" required>
+
+                    <button type="submit">Odeslat rezervaci</button>
+                </form>
                 </div>
             </div>
         </section>
